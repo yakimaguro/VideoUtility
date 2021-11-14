@@ -1,12 +1,56 @@
 {
   "name": "videoutility",
   "version": "1.0.0",
+  "private": true,
   "description": "ffmpegを使った動画エンコーディングソフト",
-  "main": "main.js",
+  "author": {
+    "name": "maguroooo"
+  },
   "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "main": "main.js",
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "electron": "^15.3.1",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "_id": "videoutility@1.0.0",
+  "bugs": {
+    "url": "https://github.com/electron/electron-quick-start/issues"
+  },
+  "homepage": "https://github.com/electron/electron-quick-start#readme",
   "keywords": [
     "Electron",
     "quick",
@@ -14,9 +58,10 @@
     "tutorial",
     "demo"
   ],
-  "author": "maguroooo",
   "license": "CC0-1.0",
-  "devDependencies": {
-    "electron": "^15.3.1"
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/electron/electron-quick-start.git"
   }
 }
