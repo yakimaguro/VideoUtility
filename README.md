@@ -12,7 +12,7 @@ yarn run electron:serve
 
 ### Compiles and minifies for production
 ```
-yarn build
+yarn run electron:build
 ```
 
 ### Lints and fixes files
