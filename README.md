@@ -1,21 +1,21 @@
 # videoutility
 
-## Project setup
+## パッケージのインストール
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### テスト実行
 ```
 yarn run electron:serve
 ```
 
-### Compiles and minifies for production
+### ビルド
 ```
 yarn run electron:build
 ```
 
-### Lints and fixes files
+### Lints & ファイルを修正する
 ```
 yarn lint
 ```
