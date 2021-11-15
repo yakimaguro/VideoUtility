@@ -7,10 +7,10 @@ ul {
   list-style-type: none;
 }
 
-.menu ul li {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 15px;
+.menu {
+  display: inline-block;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .menu ul li {
@@ -20,6 +20,15 @@ ul {
   border-radius: 5px;
   transition: .2s;
   cursor: pointer;
+  width: 80px;
+  height: 80px;
+  margin-left: -30px;
+  margin-bottom: 15px;
+}
+
+.menu ul li:hover {
+  box-shadow: 0 10px 5px -3px rgba(0, 0, 0, .15), 0 0 5px rgba(0, 0, 0, .1);
+  transform: translateY(-4px);
 }
 
 .menu ul li svg {
@@ -28,7 +37,18 @@ ul {
   fill: #d8dee9;
 }
 
-.menu ul li:hover {
-  box-shadow: 0 10px 5px -3px rgba(0, 0, 0, .15), 0 0 5px rgba(0, 0, 0, .1);
-  transform: translateY(-4px);
+.box {
+  padding: 0.5em 1em;
+  margin-left: 10%;
+  margin-top: -204px;
+  height: 500px;
+  color: #5d627b;
+  background: white;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.22);
+  border-radius: 10px;
+}
+
+.box p {
+  margin: 0;
+  padding: 0;
 }
