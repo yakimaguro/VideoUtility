@@ -1,22 +1,23 @@
 {
   "name": "videoutility",
   "version": "1.0.0",
-  "description": "ffmpegを使った動画エンコーディングソフト",
-  "main": "main.js",
+  "description": "FFmpegを使った動画エンコーディングソフト",
+  "main": "src/main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/maguroooo/VideoUtility",
   "keywords": [
     "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "FFmpeg"
   ],
   "author": "maguroooo",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^15.3.1"
+  },
+  "dependencies": {
+    "fluent-ffmpeg": "^2.1.2",
+    "nord": "^0.2.1"
   }
 }
