@@ -1,5 +1,7 @@
 # VideoUtility
  
+ # Icon
+ [Google Material Icons](https://fonts.google.com/icons?selected=Material+Icons)  
 
-
-[Thanks Nord Theme](https://www.nordtheme.com)
+# Color
+[Nord Theme](https://www.nordtheme.com)
