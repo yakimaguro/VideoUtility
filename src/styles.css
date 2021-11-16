@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
+
 body {
+  font-family: 'Noto Sans JP', sans-serif;
   background-color: #d8dee9;
   color: #2e3440;
 }
@@ -22,7 +25,6 @@ ul {
   cursor: pointer;
   width: 80px;
   height: 80px;
-  margin-left: -30px;
   margin-bottom: 15px;
 }
 
@@ -39,9 +41,10 @@ ul {
 
 .box {
   padding: 0.5em 1em;
-  margin-left: 10%;
+  margin-left: 17%;
   margin-top: -204px;
-  height: 500px;
+  width: 80%;
+  height: 600px;
   color: #5d627b;
   background: white;
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.22);
