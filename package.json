@@ -1,10 +1,15 @@
 {
   "name": "videoutility",
   "version": "1.0.0",
-  "description": "FFmpegを使った動画エンコーディングソフト",
+  "description": "",
   "main": "src/main.js",
   "scripts": {
     "start": "electron ."
+  },
+  "build": {
+    "asarUnpack": [
+      "/node_modules/ffmpeg/"
+    ]
   },
   "repository": "https://github.com/maguroooo/VideoUtility",
   "keywords": [
@@ -17,7 +22,7 @@
     "electron": "^15.3.1"
   },
   "dependencies": {
-    "fluent-ffmpeg": "^2.1.2",
-    "nord": "^0.2.1"
+    "ffmpeg-static": "^4.4.0",
+    "fluent-ffmpeg": "^2.1.2"
   }
 }

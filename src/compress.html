@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <link href="./css/index.css" rel="stylesheet" id="style1" />
   <title>VideoUtility</title>
-  <script src="./index.js"></script>
 </head>
 <body>
   <div class="menu">
@@ -30,10 +29,9 @@
   <div class="box">
     <h1>動画を圧縮</h1>
     <p>ファイルを開く</p>
-    <svg onclick="open_file()" , xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 0 24 24" width="36px" fill="#000000">
-      <path d="M0 0h24v24H0z" fill="none" />
-      <path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z" />
-    </svg>
+    <label>
+      <input type="file" id="open_file">
+    </label>
   </div>
   <a href="./settings.html"><svg id="settings" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="36px" viewBox="0 0 24 24" width="36px" fill="#000000">
       <g>
@@ -42,5 +40,7 @@
       </g>
     </svg>
   </a>
+  <p id="status">No process in progress</p>
+  <script src="./js/compress.js"></script>
 </body>
 </html>

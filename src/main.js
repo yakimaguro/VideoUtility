@@ -1,15 +1,19 @@
 const {
   app,
+  dialog,
+  ipcMain,
   BrowserWindow
 } = require('electron');
 const path = require('path');
+const fs = require('fs')
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
-    width: 1280,
-    height: 720,
+    width: 720,
+    height: 480,
     webPreferences: {
-      preload: path.join("./preload.js"),
+      nodeIntegration: true,
+      contextIsolation: false
     },
   });
 

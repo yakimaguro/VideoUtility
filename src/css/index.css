@@ -26,6 +26,7 @@ ul {
   cursor: pointer;
   width: 80px;
   height: 80px;
+  margin-left: -25px;
   margin-bottom: 15px;
 }
 
@@ -44,8 +45,8 @@ ul {
   padding: 0.5em 1em;
   margin-left: 17%;
   margin-top: -204px;
-  width: 80%;
-  height: 600px;
+  width: 75%;
+  height: 300px;
   color: #5d627b;
   background: white;
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.22);
