@@ -8,7 +8,7 @@ lerna-debug.log*
 .pnpm-debug.log*
 
 #vscode
-.vs
+.vscode
 
 # private
 video
