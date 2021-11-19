@@ -4,28 +4,30 @@ var command = ffmpeg();
 function OnInput(e) {
     const filePath = document.getElementById("open_file").files[0].path;
 
-    ffmpeg(filePath)
+    ffmpeg()
+        .input(filePath)
+        .seekInput(0.0)
         .output("./video/converted.mp4")
         .outputOptions('-crf 24')
         .on('progress', function (progress) {
             var status = document.getElementById('status');
-            console.log('Processing: ' + progress.percent * 2 + '% done');
-            status.textContent = 'Processing: ' + parseInt(progress.percent) * 2 + '% done'
+            console.log('Processing: ' + progress.percent + '% done');
+            status.textContent = parseInt(progress.percent) + '% 完了しました'
         })
         .on('end', () => {
             var status = document.getElementById('status');
             console.log('Processing finished !')
-            status.textContent = 'Processing finished !'
+            status.textContent = '処理が正常に終了しました！'
             setTimeout(() => {
-                status.textContent = 'No process in progress'
+                status.textContent = '進行中のプロセスはありません'
             }, 5000);
         })
-        .screenshots({ // これはサムネイル作成の記述
-            count: 1,
-            folder: "./video/",
-            filename: 'thumbnail.jpg',
-            size: '150x150'
-        })
+        .on('error', function (err) {
+            var status = document.getElementById('status');
+            console.log('エラーが発生しました' + err);
+            status.textContent = 'エラーが発生しました' + err
+        }).run()
+
 }
 const myInput = document.getElementById("open_file");
 myInput.oninput = OnInput;
