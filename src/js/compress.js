@@ -1,5 +1,21 @@
-var ffmpeg = require('fluent-ffmpeg');
+const ffmpeg = require('fluent-ffmpeg');
 var command = ffmpeg();
+const status = document.getElementById('status');
+const compressibility = document.getElementById('compressibility');
+const compress_text = document.getElementById('compressibility_value');
+
+const setCurrentValue = (val) => {
+    compress_text.innerText = "圧縮率" + val;
+}
+
+const rangeOnChange = (e) => {
+    setCurrentValue(e.target.value);
+}
+
+window.onload = () => {
+    compressibility.addEventListener('input', rangeOnChange);
+    setCurrentValue(compressibility.value);
+}
 
 function OnInput(e) {
     const filePath = document.getElementById("open_file").files[0].path;
@@ -8,14 +24,12 @@ function OnInput(e) {
         .input(filePath)
         .seekInput(0.0)
         .output("./video/converted.mp4")
-        .outputOptions('-crf 24')
+        .outputOptions('-crf ' + compressibility.value)
         .on('progress', function (progress) {
-            var status = document.getElementById('status');
             console.log('Processing: ' + progress.percent + '% done');
             status.textContent = parseInt(progress.percent) + '% 完了しました'
         })
         .on('end', () => {
-            var status = document.getElementById('status');
             console.log('Processing finished !')
             status.textContent = '処理が正常に終了しました！'
             setTimeout(() => {
@@ -23,7 +37,6 @@ function OnInput(e) {
             }, 5000);
         })
         .on('error', function (err) {
-            var status = document.getElementById('status');
             console.log('エラーが発生しました' + err);
             status.textContent = 'エラーが発生しました' + err
         }).run()
