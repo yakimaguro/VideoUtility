@@ -4,22 +4,27 @@
   "description": "",
   "main": "src/main.js",
   "scripts": {
-    "start": "electron ."
-  },
-  "build": {
-    "asarUnpack": [
-      "/node_modules/ffmpeg/"
-    ]
+    "start": "electron .",
+    "build:mac": "electron-builder --mac --x64",
+    "build:win": "electron-builder --win --x64"
   },
   "repository": "https://github.com/maguroooo/VideoUtility",
   "keywords": [
     "Electron",
     "FFmpeg"
   ],
+  "build": {
+    "appId": "me.maguroooo.videoutility",
+    "productName": "VideoUtility",
+    "files": [
+      "src/**/*"
+    ]
+  },
   "author": "maguroooo",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^15.3.1"
+    "electron": "^15.3.1",
+    "electron-builder": "^22.13.1"
   },
   "dependencies": {
     "ffmpeg-static": "^4.4.0",
