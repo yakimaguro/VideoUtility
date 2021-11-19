@@ -3,9 +3,11 @@ var command = ffmpeg();
 const status = document.getElementById('status');
 const compressibility = document.getElementById('compressibility');
 const compress_text = document.getElementById('compressibility_value');
+var val2;
 
 const setCurrentValue = (val) => {
     compress_text.innerText = "圧縮率" + val;
+    val2 = val;
 }
 
 const rangeOnChange = (e) => {
@@ -18,13 +20,13 @@ window.onload = () => {
 }
 
 function OnInput(e) {
-    const filePath = document.getElementById("open_file").files[0].path;
+    const filePath = document.getElementById("compress_file").files[0].path;
 
     ffmpeg()
         .input(filePath)
         .seekInput(0.0)
         .output("./video/converted.mp4")
-        .outputOptions('-crf ' + compressibility.value)
+        .outputOptions('-crf ' + val2)
         .on('progress', function (progress) {
             console.log('Processing: ' + progress.percent + '% done');
             status.textContent = parseInt(progress.percent) + '% 完了しました'
@@ -42,5 +44,5 @@ function OnInput(e) {
         }).run()
 
 }
-const myInput = document.getElementById("open_file");
+const myInput = document.getElementById("compress_file");
 myInput.oninput = OnInput;
