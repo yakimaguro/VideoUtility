@@ -1,6 +1,6 @@
 const ffmpeg = require('fluent-ffmpeg');
 var command = ffmpeg();
-const status = document.getElementById('status');
+const status = document.getElementById('compress_status');
 const compressibility = document.getElementById('compressibility');
 const compress_text = document.getElementById('compressibility_value');
 var val2;
@@ -19,7 +19,7 @@ window.onload = () => {
     setCurrentValue(compressibility.value);
 }
 
-function OnInput(e) {
+function Compress_OnInput(e) {
     const filePath = document.getElementById("compress_file").files[0].path;
 
     ffmpeg()
@@ -44,5 +44,5 @@ function OnInput(e) {
         }).run()
 
 }
-const myInput = document.getElementById("compress_file");
-myInput.oninput = OnInput;
+const compress_file_input = document.getElementById("compress_file");
+compress_file_input.oninput = Compress_OnInput;
