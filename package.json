@@ -27,6 +27,7 @@
     "electron-builder": "^22.13.1"
   },
   "dependencies": {
+    "@electron/remote": "^2.0.1",
     "ffmpeg-static": "^4.4.0",
     "fluent-ffmpeg": "^2.1.2"
   }

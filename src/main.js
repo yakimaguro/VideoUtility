@@ -1,11 +1,5 @@
-const {
-  app,
-  dialog,
-  ipcMain,
-  BrowserWindow
-} = require('electron');
-const path = require('path');
-const fs = require('fs')
+const { app, dialog, ipcMain, BrowserWindow } = require("electron");
+const path = require("path");
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
@@ -13,26 +7,34 @@ function createWindow() {
     height: 480,
     webPreferences: {
       nodeIntegration: true,
-      contextIsolation: false
+      contextIsolation: false,
+      enableRemoteModule: true,
     },
   });
 
   // Hide Menu
   // mainWindow.setMenu(null);
-  mainWindow.loadFile('src/format.html');
+  mainWindow.loadFile("src/format.html");
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools();
 }
 
 app.whenReady().then(() => {
   createWindow();
 
-  app.on('activate', function () {
+  ipcMain.handle("select_folder", async (event) => {
+    const path = dialog.showOpenDialogSync({
+      properties: ["createDirectory", "openDirectory"],
+    });
+    return path;
+  });
+
+  app.on("activate", function () {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
 });
 
-app.on('window-all-closed', function () {
-  if (process.platform !== 'darwin') app.quit();
+app.on("window-all-closed", function () {
+  if (process.platform !== "darwin") app.quit();
 });
