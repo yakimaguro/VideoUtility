@@ -13,11 +13,11 @@ function createWindow() {
   });
 
   // Hide Menu
-  // mainWindow.setMenu(null);
+  mainWindow.setMenu(null);
   mainWindow.loadFile("src/format.html");
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 }
 
 app.whenReady().then(() => {
