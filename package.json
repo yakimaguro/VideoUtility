@@ -1,6 +1,6 @@
 {
   "name": "videoutility",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "main": "src/main.js",
   "scripts": {
@@ -21,7 +21,7 @@
     ]
   },
   "author": "maguroooo",
-  "license": "CC0-1.0",
+  "license": "MIT",
   "devDependencies": {
     "electron": "^15.3.1",
     "electron-builder": "^22.13.1"
