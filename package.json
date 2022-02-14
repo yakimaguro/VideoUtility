@@ -29,6 +29,7 @@
   "dependencies": {
     "@electron/remote": "^2.0.1",
     "ffmpeg-static": "^4.4.0",
-    "fluent-ffmpeg": "^2.1.2"
+    "fluent-ffmpeg": "^2.1.2",
+    "jquery": "^3.6.0"
   }
 }

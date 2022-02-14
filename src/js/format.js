@@ -1,5 +1,6 @@
 const { ipcRenderer } = require('electron');
 const ffmpeg = require('fluent-ffmpeg');
+var $ = require('jQuery');
 var command = ffmpeg();
 var format = document.getElementById('format');
 const status = document.getElementById('format_status');

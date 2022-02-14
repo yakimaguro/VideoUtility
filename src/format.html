@@ -1,85 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <link href="./css/index.css" rel="stylesheet" id="style1" />
-    <title>VideoUtility</title>
-  </head>
-  <body>
-    <div class="menu">
-      <ul>
-        <!-- format -->
-        <li>
-          <a href="./format.html"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              enable-background="new 0 0 24 24"
-              height="60px"
-              viewBox="0 0 24 24"
-              width="60px"
-              fill="#000000"
-            >
-              <rect fill="none" height="24" width="24" />
-              <path
-                d="M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10s10-4.48,10-10C22,6.48,17.52,2,12,2z M12.06,19v-2.01c-0.02,0-0.04,0-0.06,0 c-1.28,0-2.56-0.49-3.54-1.46c-1.71-1.71-1.92-4.35-0.64-6.29l1.1,1.1c-0.71,1.33-0.53,3.01,0.59,4.13c0.7,0.7,1.62,1.03,2.54,1.01 v-2.14l2.83,2.83L12.06,19z M16.17,14.76l-1.1-1.1c0.71-1.33,0.53-3.01-0.59-4.13C13.79,8.84,12.9,8.5,12,8.5c-0.02,0-0.04,0-0.06,0 v2.15L9.11,7.83L11.94,5v2.02c1.3-0.02,2.61,0.45,3.6,1.45C17.24,10.17,17.45,12.82,16.17,14.76z"
-              />
-            </svg>
-          </a>
-        </li>
-        <!-- compress -->
-        <li>
-          <a href="./compress.html"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="60px"
-              viewBox="0 0 24 24"
-              width="60px"
-              fill="#000000"
-            >
-              <path d="M0 0h24v24H0z" fill="none" />
-              <path d="M0 0h24v24H0V0z" fill="none" />
-              <path
-                d="M8 19h3v3h2v-3h3l-4-4-4 4zm8-15h-3V1h-2v3H8l4 4 4-4zM4 9v2h16V9H4z"
-              />
-              <path d="M4 12h16v2H4z" />
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="box">
-      <h1>動画のフォーマットを変換</h1>
-      <input type="file" id="format_file" />
-      <p>フォーマットを選んでください</p>
-      <select id="format">
-        <option value="mp4">mp4</option>
-        <option value="mov">mov</option>
-        <option value="mkv">mkv</option>
-        <option value="avi">avi</option>
-        <option value="wmv">wmv</option>
-        <option value="asf">asf</option>
-        <option value="webm">webm</option>
-      </select>
-    </div>
-    <a href="./settings.html"
-      ><svg
-        id="settings"
-        xmlns="http://www.w3.org/2000/svg"
-        enable-background="new 0 0 24 24"
-        height="36px"
-        viewBox="0 0 24 24"
-        width="36px"
-        fill="#000000"
-      >
-        <g>
-          <path d="M0,0h24v24H0V0z" fill="none" />
-          <path
-            d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"
-          />
-        </g>
-      </svg>
-    </a>
-    <p id="format_status">進行中のプロセスはありません</p>
-    <script src="./js/format.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <link href="./css/index.css" rel="stylesheet" />
+  <title>VideoUtility</title>
+</head>
+<body>
+  <div class="menu">
+    <ul>
+      <!-- format -->
+      <li>
+        <a href="./format.html">
+          <img class="a" src="./img/ic_fluent_arrow_sync_24_regular.svg">
+          <p class="format_text">フォーマットを変換</p>
+        </a>
+      </li>
+      <!-- compress -->
+      <li>
+        <a href="./compress.html">
+          <img class="i" src="./img/ic_fluent_arrow_minimize_vertical_24_regular.svg">
+          <p class="format_text">圧縮</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="box">
+    <h1>動画のフォーマットを変換</h1>
+    <label>
+      <input class="file-button" type="file" id="format_file" />ファイルを選択
+    </label>
+    <p>フォーマットを選んでください</p>
+    <select id="format">
+      <option value="mp4">mp4</option>
+      <option value="mov">mov</option>
+      <option value="mkv">mkv</option>
+      <option value="avi">avi</option>
+      <option value="wmv">wmv</option>
+      <option value="asf">asf</option>
+      <option value="webm">webm</option>
+    </select>
+  </div>
+  <p id="format-status">進行中のプロセスはありません</p>
+  <script src="./js/format.js"></script>
+</body>
 </html>
