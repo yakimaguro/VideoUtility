@@ -122,11 +122,15 @@ select {
 }
 
 .format-image {
+  position: relative;
   margin-top: 12px;
+  left: 5px;
 }
 
 .compress-image {
+  position: relative;
   margin-top: 12px;
+  left: 5px;
 }
 
 .process-dialog{
