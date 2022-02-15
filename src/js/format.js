@@ -15,30 +15,56 @@ function Format_OnInput(e) {
     dialog_open();
     $(".dialog-close").addClass("disabled");
     dialogclose.disabled = true;
-    ffmpeg()
-      .input(filePath)
-      .seekInput(0.0)
-      .output(return_path + '/' + fileName + '_converted.' + format.value)
-      .on('progress', function (progress) {
-        document.getElementById('progress-bar').value = parseInt(progress.percent);
-        progresstext.textContent = parseInt(progress.percent) + '%';
-        console.log('Processing: ' + progress.percent + '% done');
-      })
-      .on('end', () => {
-        console.log('Processing finished !');
-        $(".dialog-close").removeClass("disabled");
-        progresstext.textContent = '完了';
-        dialogclose.disabled = false;
-        cancel.disabled = true;
-        $(".cancel").addClass("disabled");
-      })
-      .on('error', function (err) {
-        console.log('エラーが発生しました' + err);
-        errortext.textContent = 'エラーが発生しました' + err;
-        $(".dialog-close").remove("disabled");
-        dialogclose.disabled = false;
-      })
-      .run();
+    if (format.value != 'gif') {
+      ffmpeg()
+        .input(filePath)
+        .seekInput(0.0)
+        .output(return_path + '/' + fileName + '_converted.' + format.value)
+        .on('progress', function (progress) {
+          document.getElementById('progress-bar').value = parseInt(progress.percent);
+          progresstext.textContent = parseInt(progress.percent) + '%';
+          console.log('Processing: ' + progress.percent + '% done');
+        })
+        .on('end', () => {
+          console.log('Processing finished !');
+          $(".dialog-close").removeClass("disabled");
+          progresstext.textContent = '完了';
+          dialogclose.disabled = false;
+          cancel.disabled = true;
+          $(".cancel").addClass("disabled");
+        })
+        .on('error', function (err) {
+          console.log('エラーが発生しました' + err);
+          errortext.textContent = 'エラーが発生しました' + err;
+          $(".dialog-close").remove("disabled");
+          dialogclose.disabled = false;
+        })
+        .run();
+    } else {
+      ffmpeg()
+        .input(filePath)
+        .seekInput(0.0)
+        .addOption('-filter_complex', "[0:v] fps=18,scale=640:-1,split [a][b];[a] palettegen [p];[b][p] paletteuse=dither=none")
+        .output(return_path + '/' + fileName + '_converted.gif')
+        .on('progress', function (progress) {
+          document.getElementById('progress-bar').value = parseInt(progress.percent);
+          progresstext.textContent = parseInt(progress.percent) + '%';
+          console.log('Processing: ' + progress.percent + '% done');
+        })
+        .on('end', () => {
+          console.log('Processing finished !');
+          $(".dialog-close").removeClass("disabled");
+          progresstext.textContent = '完了';
+          dialogclose.disabled = false;
+          cancel.disabled = true;
+          $(".cancel").addClass("disabled");
+        })
+        .on('error', function (err) {
+          console.log('エラーが発生しました' + err);
+          dialogclose.disabled = false;
+        })
+        .run();
+    }
     $('#open-folder').on('click', function () {
       shell.openPath(return_path[0]);
     });
