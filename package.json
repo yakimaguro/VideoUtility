@@ -1,7 +1,7 @@
 {
   "name": "videoutility",
-  "version": "1.0.3",
-  "description": "",
+  "version": "1.1.0",
+  "description": "VideoConvertTool",
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
@@ -30,6 +30,7 @@
     "@electron/remote": "^2.0.1",
     "ffmpeg-static": "^4.4.0",
     "fluent-ffmpeg": "^2.1.2",
-    "jquery": "^3.6.0"
+    "jquery": "^3.6.0",
+    "jQuery": "^1.7.4"
   }
 }
