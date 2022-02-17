@@ -8,19 +8,26 @@
     "build:mac": "electron-builder --mac --x64",
     "build:win": "electron-builder --win --x64"
   },
-  "repository": "https://github.com/maguroooo/VideoUtility",
+  "repository": "https://github.com/yakimaguro/VideoUtility",
   "keywords": [
     "Electron",
     "FFmpeg"
   ],
   "build": {
-    "appId": "me.maguroooo.videoutility",
+    "appId": "me.yakimaguro.videoutility",
     "productName": "VideoUtility",
     "files": [
       "src/**/*"
-    ]
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
   },
-  "author": "maguroooo",
+  "author": "yakimaguro",
   "license": "MIT",
   "devDependencies": {
     "electron": "^15.3.1",
