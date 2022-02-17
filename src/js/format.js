@@ -4,7 +4,7 @@ const ffmpeg = require('fluent-ffmpeg');
 const $ = require('jQuery');
 var format = document.getElementById('format');
 var progresstext = document.getElementById('progress-text');
-var dialogclose = document.getElementById('dialog-close');
+var ok = document.getElementById('dialog-close');
 var cancel = document.getElementById('cancel');
 var errortext = document.getElementById('error-text');
 
@@ -13,8 +13,7 @@ function Format_OnInput(e) {
   const fileName = document.getElementById('format_file').files[0].name.split(/\.(?=[^.]+$)/)[0];
   ipcRenderer.invoke('select_folder').then(function (return_path) {
     dialog_open();
-    $(".dialog-close").addClass("disabled");
-    dialogclose.disabled = true;
+    dialog_enable(false);
     if (format.value != 'gif') {
       ffmpeg()
         .input(filePath)
@@ -27,17 +26,15 @@ function Format_OnInput(e) {
         })
         .on('end', () => {
           console.log('Processing finished !');
-          $(".dialog-close").removeClass("disabled");
           progresstext.textContent = '完了';
-          dialogclose.disabled = false;
-          cancel.disabled = true;
-          $(".cancel").addClass("disabled");
+          dialog_enable(true);
+          cancel_enable(false);
         })
         .on('error', function (err) {
           console.log('エラーが発生しました' + err);
           errortext.textContent = 'エラーが発生しました' + err;
-          $(".dialog-close").remove("disabled");
-          dialogclose.disabled = false;
+          dialog_enable(true);
+          cancel_enable(false);
         })
         .run();
     } else {
@@ -53,15 +50,13 @@ function Format_OnInput(e) {
         })
         .on('end', () => {
           console.log('Processing finished !');
-          $(".dialog-close").removeClass("disabled");
-          progresstext.textContent = '完了';
-          dialogclose.disabled = false;
-          cancel.disabled = true;
-          $(".cancel").addClass("disabled");
+          dialog_enable(true);
+          cancel_enable(false);
         })
         .on('error', function (err) {
           console.log('エラーが発生しました' + err);
-          dialogclose.disabled = false;
+          dialog_enable(true);
+          cancel_enable(false);
         })
         .run();
     }
@@ -80,6 +75,26 @@ $('#dialog-close').on('click', function () {
 $('#cancel').on('click', function () {
   window.location.reload();
 });
+
+function dialog_enable(bool) {
+  if (bool) {
+    ok.disabled = false;
+    $(".dialog-close").removeClass("disabled");
+  } else {
+    ok.disabled = true;
+    $(".dialog-close").addClass("disabled");
+  }
+}
+
+function cancel_enable(bool) {
+  if (bool) {
+    cancel.disabled = false;
+    $(".cancel").removeClass("disabled");
+  } else {
+    cancel.disabled = true;
+    $(".cancel").addClass("disabled");
+  }
+}
 
 function dialog_open() {
   $(this).blur();
